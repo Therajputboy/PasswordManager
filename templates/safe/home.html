@@ -1,0 +1,24 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-{{message.tags}} text-center">{{message}}</div>
+		{% endfor %}
+	{%endif%}
+
+	<div class="container mt-2" style="width:50%">
+	{% for site in sites %}
+	<a href="{% url 'show-password' site.id %}" style="color:#000">
+		<div class="card mt-3" style="background:#f2f2f2;border-color:#f2f2f2;box-shadow:2px 2px 2px 2px">
+		<div class="card-body" align="center">
+			<h2 class="card-title">{{site.site_name}}</h2>
+			<!--<p class="card-text">{{site.site_text}}</p>
+			<!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+		</div>
+		</div>
+		</a>
+	{% endfor %}
+	</div
+	
+
+{% endblock content%}
